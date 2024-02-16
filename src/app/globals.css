@@ -16,8 +16,10 @@
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 @layer utilities {
