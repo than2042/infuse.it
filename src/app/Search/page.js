@@ -17,11 +17,10 @@ export default function Home() {
   }, []);
   return (
     <div className="flex flex-col margin-10">
-      <h2>Home</h2>
       <p>Browse our Drinks</p>
       <div className="mt-8 grid grid-cols-2 gap-10">
         {drinks.map((drink, index) => (
-          <div key={drink.idDrink}>
+          <div key={drink.idDrink} className="flex justify-evenly gap-1">
             <Link href={`/Search/${drink.idDrink}`}>
               <Image
                 src={drink.strDrinkThumb}

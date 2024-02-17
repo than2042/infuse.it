@@ -1,7 +1,7 @@
 import { Inter } from "next/font/google";
 import { ClerkProvider, auth, UserButton } from "@clerk/nextjs";
 // import Header from "@/components/Header";
-import Link from "next/link";
+// import Link from "next/link";
 
 import "./globals.css";
 
@@ -19,13 +19,7 @@ export default function RootLayout({ children }) {
     <ClerkProvider>
       <html lang="en">
         <body className={inter.className}>
-          <div>
-            {userId ? (
-              <UserButton afterSignOutUrl="/" />
-            ) : (
-              <Link href={"/sign-in"}>Sign In</Link>
-            )}
-          </div>
+          <div>{userId ? <UserButton afterSignOutUrl="/" /> : null}</div>
           {children}
         </body>
       </html>

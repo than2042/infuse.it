@@ -1,30 +1,30 @@
 import Image from "next/image";
-import cocktail1 from "../../public/images/cocktail1.svg";
-import cocktail2 from "../../public/images/cocktail2.svg";
-import cocktail5 from "../../public/images/cocktail5.svg";
-import cocktail6 from "../../public/images/cocktail6.svg";
-import cocktail7 from "../../public/images/cocktail7.svg";
-import cocktail8 from "../../public/images/cocktail8.svg";
+import lime from "../../public/images/lime.svg";
+import orange from "../../public/images/orange.svg";
+import port from "../../public/images/port.svg";
+import rum from "../../public/images/rum.svg";
+import tea from "../../public/images/tea.svg";
+import cognic from "../../public/images/cognic.svg";
 
 const arryImage = [
   {
-    image: cocktail1,
+    image: lime,
   },
   {
-    image: cocktail5,
+    image: port,
   },
   {
-    image: cocktail6,
+    image: rum,
   },
 
   {
-    image: cocktail7,
+    image: tea,
   },
   {
-    image: cocktail8,
+    image: cognic,
   },
   {
-    image: cocktail2,
+    image: orange,
   },
 ];
 
@@ -38,7 +38,7 @@ const HomeStatic = () => {
               <div key={item.title} className="flex justify-evenly gap-1">
                 <Image
                   width={150}
-                  height={80}
+                  height={70}
                   src={item.image}
                   alt="cocktail image"
                 />
