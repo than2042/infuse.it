@@ -1,32 +1,5 @@
 import Image from "next/image";
-import lime from "../../public/images/lime.svg";
-import orange from "../../public/images/orange.svg";
-import port from "../../public/images/port.svg";
-import rum from "../../public/images/rum.svg";
-import tea from "../../public/images/tea.svg";
-import cognic from "../../public/images/cognic.svg";
-
-const arryImage = [
-  {
-    image: lime,
-  },
-  {
-    image: port,
-  },
-  {
-    image: rum,
-  },
-
-  {
-    image: tea,
-  },
-  {
-    image: cognic,
-  },
-  {
-    image: orange,
-  },
-];
+import { arryImage } from "@/lib/ImgData";
 
 const HomeStatic = () => {
   return (
@@ -41,6 +14,7 @@ const HomeStatic = () => {
                   height={70}
                   src={item.image}
                   alt="cocktail image"
+                  key={item.title}
                 />
               </div>
             );

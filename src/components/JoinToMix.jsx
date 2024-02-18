@@ -20,7 +20,7 @@ const JoinToMix = () => {
 
       {userId && (
         <Link
-          className="bg-slate-300 w-8/12 h-8 text-center p-1 rounded-md text-black"
+          className="bg-slate-200 w-8/12 h-8 text-center p-1 rounded-md text-black"
           href={"./sign-in"}
         >
           I already have an account
