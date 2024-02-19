@@ -18,7 +18,8 @@ export default function ProfileForm({
       ...data,
       [e.target.name]: e.target.value,
     });
-    console.log(data);
+    console.log(e.target.name);
+    console.log(e.target.value);
   };
 
   const handleSubmit = async (e) => {
@@ -41,8 +42,13 @@ export default function ProfileForm({
           name="fav_spirits_id"
           handleChange={handleChange}
           fav_spiritsOptions={fav_spiritsOptions}
+          data={data}
         />
-        <SelectAlcOptions name="alc" handleChange={handleChange} data={data} />
+        <SelectAlcOptions
+          name="alc_id"
+          handleChange={handleChange}
+          data={data}
+        />
         <ToggleInput handleChange={handleChange} data={data} />
         <IngredientsInput
           name="cabinet_id"

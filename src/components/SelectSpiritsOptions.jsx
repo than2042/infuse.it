@@ -4,12 +4,17 @@ import * as React from "react";
 import Autocomplete from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
 
-export default function IngredientsInput({ fav_spiritsOptions, handleChange }) {
+export default function IngredientsInput({
+  fav_spiritsOptions,
+  handleChange,
+  data,
+}) {
   return (
     <Autocomplete
       multiple
       id="tags-standard"
       name="title"
+      value={data.fav_spirits_id || null}
       onChange={handleChange}
       options={fav_spiritsOptions}
       getOptionLabel={(option) => option.fav_spirits}

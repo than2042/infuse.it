@@ -3,21 +3,9 @@ import * as React from "react";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 
-export default function ToggleInput({ handleChange, data }) {
-  //   const [alignment, setAlignment] = React.useState("web");
-
-  //   const handleChange = (event, newAlignment) => {
-  //     setAlignment(newAlignment);
-  //   };
-
+export default function ToggleInput({ handleChange }) {
   return (
-    <ToggleButtonGroup
-      color="primary"
-      value={data}
-      exclusive
-      onChange={handleChange}
-      aria-label="Platform"
-    >
+    <ToggleButtonGroup color="primary" exclusive onChange={handleChange}>
       <ToggleButton value={true} name="short">
         Short
       </ToggleButton>

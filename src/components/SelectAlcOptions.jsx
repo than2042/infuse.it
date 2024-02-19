@@ -15,14 +15,11 @@ export default function SelectAlcOptions({ handleChange, data }) {
         <Select
           labelId="demo-simple-select-standard-label"
           id="demo-simple-select-standard"
+          value={data.alc_id || " "}
           name="alc_id"
-          value={data}
           onChange={handleChange}
-          label="Alcoholic or Non-Alcoholic?"
+          label="Alcoholic/Non"
         >
-          <MenuItem value="">
-            <em>None</em>
-          </MenuItem>
           <MenuItem value={4}>Alcoholic</MenuItem>
           <MenuItem value={5}>Non-Alcoholic</MenuItem>
           <MenuItem value={6}>Both</MenuItem>

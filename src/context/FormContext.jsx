@@ -14,7 +14,7 @@ export const FormProvider = ({ children }) => {
     complex: false,
     dairy: false,
     egg: false,
-    alc: "",
+    alc_id: "",
     fav_spirits_id: [],
     cabinet_id: [],
   });
