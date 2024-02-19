@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 
 export default function Home() {
   const [drinks, setDrinks] = useState([]);
+
   useEffect(() => {
     async function fetchDrinks() {
       const response = await fetch("/api/retrieveCocktails");
@@ -15,14 +16,14 @@ export default function Home() {
     }
     fetchDrinks();
   }, []);
+
   return (
     <div className="flex flex-col margin-10">
-      <h2>Home</h2>
       <p>Browse our Drinks</p>
       <div className="mt-8 grid grid-cols-2 gap-10">
         {drinks.map((drink, index) => (
-          <div key={drink.idDrink}>
-            <Link href={`/Search/${drink.idDrink}`}>
+          <div key={drink.idDrink} className="flex justify-evenly gap-1">
+            <Link key={drink.index} href={`/Search/${drink.idDrink}`}>
               <Image
                 src={drink.strDrinkThumb}
                 height={150}
