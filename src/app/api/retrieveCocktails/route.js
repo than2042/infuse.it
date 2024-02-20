@@ -1,4 +1,5 @@
 export async function GET() {
+  // get the search params here
   const responseAlcoholic = await fetch(
     "http://www.thecocktaildb.com/api/json/v2/9973533/filter.php?a=Alcoholic"
   );

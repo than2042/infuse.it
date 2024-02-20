@@ -30,7 +30,7 @@ const HomePage = () => {
 
   return (
     <div className="m-auto w-11/12">
-      <Link href={"/Search"}>Search</Link>
+      <Link href={"/search"}>Search</Link>
       <HomeStatic />
       <JoinToMix />
     </div>

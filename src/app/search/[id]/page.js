@@ -12,7 +12,7 @@ export default async function SinglePostPage({ params }) {
   ); // call the API
   const details = await response.json(); // parse the response as JSON - called it details so clear it is different to previous page
 
-  revalidatePath(`/Search/${params.id}`);
+  revalidatePath(`/search/${params.id}`);
 
   return (
     <>
