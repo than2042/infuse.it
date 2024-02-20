@@ -4,7 +4,7 @@ import Image from "next/image";
 
 import { useState, useEffect } from "react";
 
-export default function Home() {
+export default function Search() {
   const [drinks, setDrinks] = useState([]);
 
   useEffect(() => {
@@ -20,6 +20,9 @@ export default function Home() {
   return (
     <div className="flex flex-col margin-10">
       <p>Browse our Drinks</p>
+      <div className="flex flex-col gap-10 items-center p-6 ">
+        <input className="" />
+      </div>
       <div className="mt-8 grid grid-cols-2 gap-10">
         {drinks.map((drink, index) => (
           <div key={drink.idDrink} className="flex justify-evenly gap-1">
