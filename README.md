@@ -32,23 +32,23 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 
 ## Project Planning
 
-![Thoughts](thoughts.png)
-![Resources](resources.png)
-![design Idea](designIdea.png)
-![Filter](filter.png)
+![Thoughts](./public/images/thoughts.png)
+![Resources](./public/images/resources.png)
+![design Idea](./public/images/designIdea.png)
+![Filter](./public/images/filter.png)
 
 ## Page & components
 
-![Page and component](page-component.png)
+![Page and component](./public/images/page-component.png)
 
 ## User Story
 
-![User Story](userstory.png)
+![User Story](./public/images/userstory.png)
 
 ## Data Table
 
-![database](database.png)
-![data table](table.png)
+![database](./public/images/database.png)
+![data table](./public/images/table.png)
 
 ## Deploy on Vercel
 

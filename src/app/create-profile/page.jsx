@@ -8,9 +8,6 @@ export default async function CreateProfilePage() {
   const ingredientsRes = await db.query(`SELECT * FROM cabinet`);
   const ingredientsOptions = ingredientsRes.rows;
 
-  //   console.log("fav_spiritsOptions", fav_spiritsOptions);
-  //   console.log("ingredientsOptions", ingredientsOptions);
-
   return (
     <>
       <ProfileForm
