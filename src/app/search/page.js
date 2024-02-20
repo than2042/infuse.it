@@ -44,7 +44,7 @@ export default function Search() {
       <div className="mt-8 grid grid-cols-2 gap-10">
         {drinks.map((drink, index) => (
           <div key={drink.idDrink} className="flex justify-evenly gap-1">
-            <Link key={drink.index} href={`/Search/${drink.idDrink}`}>
+            <Link key={drink.index} href={`/search/${drink.idDrink}`}>
               <Image
                 src={drink.strDrinkThumb}
                 height={150}
