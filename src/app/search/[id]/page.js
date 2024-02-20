@@ -12,7 +12,7 @@ export default async function SinglePostPage({ params }) {
   ); // call the API
   const details = await response.json(); // parse the response as JSON - called it details so clear it is different to previous page
 
-  revalidatePath(`/Search/${params.id}`);
+  revalidatePath(`/search/${params.id}`);
 
   return (
     <>
@@ -68,7 +68,7 @@ export default async function SinglePostPage({ params }) {
                 <p>{detail.strGlass}</p>
               </div>
               <nav>
-                <Link href="/Search">Return to Cocktail List</Link>
+                <Link href="/search">Return to Cocktail List</Link>
               </nav>
             </div>
           ))}
