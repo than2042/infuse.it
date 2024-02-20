@@ -1,5 +1,9 @@
 import Link from "next/link";
 import { revalidatePath } from "next/cache";
+import { db } from "@/db";
+import { auth } from "@clerk/nextjs";
+import FavouriteButton from "@/components/FavouriteButton";
+
 
 export const metadata = {
   title: "More details",
@@ -12,12 +16,53 @@ export default async function SinglePostPage({ params }) {
   ); // call the API
   const details = await response.json(); // parse the response as JSON - called it details so clear it is different to previous page
 
-  revalidatePath(`/search/${params.id}`);
+  const { userId } = auth();
+  console.log(userId);
+  const userIdRes = await db.query(
+    `SELECT id FROM users WHERE clerk_user_id = $1`,
+    [userId]
+  );
+  const user_id = userIdRes.rows[0].id;
+  console.log("user_id", user_id);
+
+  const favRes = await db.query(
+    `SELECT * FROM favourite WHERE user_id = $1 AND cocktail_id = $2`,
+    [user_id, params.id]
+  );
+  const favStatus = favRes.rows.length === 0 ? false : true;
+  console.log(favStatus);
+
+  async function handleAddFav() {
+    "use server";
+    console.log("clicked");
+    await db.query(
+      `INSERT INTO favourite (user_id, cocktail_id) VALUES ($1, $2)`,
+      [user_id, params.id]
+    );
+    revalidatePath(`/Search/${params.id}`);
+  }
+
+  async function handleDeleteFav() {
+    "use server";
+    await db.query(
+      `DELETE FROM favourite WHERE user_id = $1 AND cocktail_id = $2`,
+      [user_id, params.id]
+    );
+    revalidatePath(`/Search/${params.id}`);
+  }
+
+  // revalidatePath(`/Search/${params.id}`);
 
   return (
     <>
       <div className="detail-container">
         <h2>Cocktail #{params.id}</h2>
+        <FavouriteButton
+          handleAddFav={handleAddFav}
+          handleDeleteFav={handleDeleteFav}
+          favStatus={favStatus}
+        />
+
         <ul className="detailOrg">
           {details.drinks.map((detail) => (
             <div className="sidebyside" key={detail.idDrink}>
@@ -68,6 +113,7 @@ export default async function SinglePostPage({ params }) {
                 <p>{detail.strGlass}</p>
               </div>
               <nav>
+
                 <Link href="/search">Return to Cocktail List</Link>
               </nav>
             </div>
