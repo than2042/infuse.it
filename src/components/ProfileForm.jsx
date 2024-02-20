@@ -78,10 +78,7 @@ export default function ProfileForm({
           ingredientsOptions={ingredientsOptions}
           ingValue={ingValue}
         />
-        <button
-          type="submit"
-          className="w-5/12 h-11 bg-pink-300 rounded-md mt-5"
-        >
+        <button type="submit" className="w-5/12 h-11 bg-pink rounded-md mt-5">
           Submit
         </button>
       </form>

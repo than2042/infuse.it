@@ -5,7 +5,7 @@ const HomeStatic = () => {
   return (
     <div>
       <div className="flex flex-col m-auto">
-        <div className="mt-8 grid grid-cols-2 gap-5">
+        <div className=" grid grid-cols-2 gap-5">
           {arryImage.map((item) => {
             return (
               <div key={item.title} className="flex justify-evenly gap-1">
@@ -14,7 +14,7 @@ const HomeStatic = () => {
                   height={70}
                   src={item.image}
                   alt="cocktail image"
-                  key={item.title}
+                  key={item.image}
                 />
               </div>
             );

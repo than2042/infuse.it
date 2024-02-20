@@ -4,7 +4,6 @@ import { db } from "@/db";
 import { auth } from "@clerk/nextjs";
 import FavouriteButton from "@/components/FavouriteButton";
 
-
 export const metadata = {
   title: "More details",
   description: "All the details for your chosen cocktail",
@@ -67,7 +66,7 @@ export default async function SinglePostPage({ params }) {
           {details.drinks.map((detail) => (
             <div className="sidebyside" key={detail.idDrink}>
               <li className="grow">{detail.strDrink}</li>
-              <img className="thumb" src={detail.strDrinkThumb} />
+              <img className="thumb" src={detail.strDrinkThumb} alt="thumb" />
 
               <h3>Ingredients</h3>
               <div className="ingredients-container">
@@ -106,14 +105,13 @@ export default async function SinglePostPage({ params }) {
                   <p>{detail.strIngredient10}</p>
                 ) : null}
               </div>
-              <div>
+              <div key={detail.idDrink}>
                 <h3>Instructions</h3>
                 <p>{detail.strInstructions}</p>
                 <h3>Glass</h3>
                 <p>{detail.strGlass}</p>
               </div>
               <nav>
-
                 <Link href="/search">Return to Cocktail List</Link>
               </nav>
             </div>
