@@ -15,7 +15,7 @@ export default function SelectAlcOptions({ handleChange, data }) {
         <Select
           labelId="demo-simple-select-standard-label"
           id="demo-simple-select-standard"
-          value={data.alc_id || " "}
+          value={data.alc_id || 6}
           name="alc_id"
           onChange={handleChange}
           label="Alcoholic/Non"

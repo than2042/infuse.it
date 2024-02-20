@@ -3,21 +3,31 @@
 import * as React from "react";
 import Autocomplete from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
+import Chip from "@mui/material/Chip";
 
 export default function IngredientsInput({
   fav_spiritsOptions,
-  handleChange,
-  data,
+  handleFavChange,
+  favValue,
 }) {
   return (
     <Autocomplete
       multiple
-      id="tags-standard"
+      id="fav_spirits"
       name="title"
-      value={data.fav_spirits_id || null}
-      onChange={handleChange}
+      value={favValue || null}
+      onChange={handleFavChange}
       options={fav_spiritsOptions}
       getOptionLabel={(option) => option.fav_spirits}
+      renderTags={(tagValue, getTagProps) => {
+        return tagValue.map((option, index) => (
+          <Chip
+            {...getTagProps({ index })}
+            key={option.id}
+            label={option.fav_spirits}
+          />
+        ));
+      }}
       filterSelectedOptions
       style={{ width: 300 }}
       renderInput={(params) => (

@@ -14,15 +14,27 @@ export const FormProvider = ({ children }) => {
     complex: false,
     dairy: false,
     egg: false,
-    alc_id: "",
-    fav_spirits_id: [],
-    cabinet_id: [],
+    alc_id: 6,
   });
 
-  const submitAction = AddUserData.bind(null, data);
+  const [ingValue, setIngValue] = useState([]);
+
+  const [favValue, setFavValue] = useState([]);
+
+  const submitAction = AddUserData.bind(null, data, ingValue, favValue);
 
   return (
-    <FormContext.Provider value={{ data, setData, submitAction }}>
+    <FormContext.Provider
+      value={{
+        data,
+        setData,
+        submitAction,
+        ingValue,
+        setIngValue,
+        favValue,
+        setFavValue,
+      }}
+    >
       {children}
     </FormContext.Provider>
   );

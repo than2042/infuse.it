@@ -11,7 +11,15 @@ export default function ProfileForm({
   fav_spiritsOptions,
   ingredientsOptions,
 }) {
-  const { data, setData, submitAction } = useForm();
+  const {
+    data,
+    setData,
+    submitAction,
+    ingValue,
+    setIngValue,
+    favValue,
+    setFavValue,
+  } = useForm();
 
   const handleChange = (e) => {
     setData({
@@ -28,6 +36,18 @@ export default function ProfileForm({
     setData("");
   };
 
+  const handleIngChange = (event, newIngValue) => {
+    console.log("newIngValue", newIngValue);
+    setIngValue(newIngValue);
+    console.log("ingValue", ingValue);
+  };
+
+  const handleFavChange = (event, newFavValue) => {
+    console.log("newFavValue", newFavValue);
+    setFavValue(newFavValue);
+    console.log("favValue", favValue);
+  };
+
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -40,9 +60,9 @@ export default function ProfileForm({
         />
         <SelectSpiritsOptions
           name="fav_spirits_id"
-          handleChange={handleChange}
+          handleFavChange={handleFavChange}
           fav_spiritsOptions={fav_spiritsOptions}
-          data={data}
+          favValue={favValue}
         />
         <SelectAlcOptions
           name="alc_id"
@@ -52,8 +72,9 @@ export default function ProfileForm({
         <ToggleInput handleChange={handleChange} data={data} />
         <IngredientsInput
           name="cabinet_id"
-          handleChange={handleChange}
+          handleIngChange={handleIngChange}
           ingredientsOptions={ingredientsOptions}
+          ingValue={ingValue}
         />
         <button type="submit">Submit</button>
       </form>
