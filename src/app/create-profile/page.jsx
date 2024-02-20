@@ -5,14 +5,14 @@ export default async function CreateProfilePage() {
   const fav_spiritsRes = await db.query(`SELECT * FROM fav_spirits`);
   const fav_spiritsOptions = fav_spiritsRes.rows;
 
-  // const ingredientsRes = await db.query(`SELECT * FROM cabinet`);
-  // const ingredientsOptions = ingredientsRes.rows;
+  const ingredientsRes = await db.query(`SELECT * FROM cabinet`);
+  const ingredientsOptions = ingredientsRes.rows;
 
   return (
     <>
       <ProfileForm
         fav_spiritsOptions={fav_spiritsOptions}
-        // ingredientsOptions={ingredientsOptions}
+        ingredientsOptions={ingredientsOptions}
       />
       <h1>Profile Page</h1>
     </>
