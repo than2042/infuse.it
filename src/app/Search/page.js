@@ -1,8 +1,7 @@
 "use client";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-
-import { useState, useEffect } from "react";
 
 export default function Search() {
   const [drinks, setDrinks] = useState([]);

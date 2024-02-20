@@ -14,7 +14,6 @@ export default async function CreateProfilePage() {
         fav_spiritsOptions={fav_spiritsOptions}
         ingredientsOptions={ingredientsOptions}
       />
-      <h1>Profile Page</h1>
     </>
   );
 }
