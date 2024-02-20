@@ -3,7 +3,6 @@ import SelectAlcOptions from "./SelectAlcOptions";
 import SelectSpiritsOptions from "./SelectSpiritsOptions";
 import IngredientsInput from "./IngredientsInput";
 import ToggleInput from "./ToggleInput";
-import * as React from "react";
 import TextField from "@mui/material/TextField";
 import { useForm } from "@/context/FormContext";
 
