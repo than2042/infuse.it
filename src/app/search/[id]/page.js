@@ -16,24 +16,22 @@ export default async function SinglePostPage({ params }) {
   const details = await response.json(); // parse the response as JSON - called it details so clear it is different to previous page
 
   const { userId } = auth();
-  console.log(userId);
+
   const userIdRes = await db.query(
     `SELECT id FROM users WHERE clerk_user_id = $1`,
     [userId]
   );
   const user_id = userIdRes.rows[0].id;
-  console.log("user_id", user_id);
 
   const favRes = await db.query(
     `SELECT * FROM favourite WHERE user_id = $1 AND cocktail_id = $2`,
     [user_id, params.id]
   );
   const favStatus = favRes.rows.length === 0 ? false : true;
-  console.log(favStatus);
 
   async function handleAddFav() {
     "use server";
-    console.log("clicked");
+
     await db.query(
       `INSERT INTO favourite (user_id, cocktail_id) VALUES ($1, $2)`,
       [user_id, params.id]
@@ -49,8 +47,6 @@ export default async function SinglePostPage({ params }) {
     );
     revalidatePath(`/Search/${params.id}`);
   }
-
-  // revalidatePath(`/Search/${params.id}`);
 
   return (
     <>

@@ -13,9 +13,6 @@ export default function Search() {
         ? `/api/retrieveCocktails/search?query=${searchQuery}`
         : "/api/retrieveCocktails";
       const response = await fetch(api);
-      console.log(response);
-      const data = await response.json();
-      console.log(data);
       setDrinks(data);
     }
     fetchDrinks();

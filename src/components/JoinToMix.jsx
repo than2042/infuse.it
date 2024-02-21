@@ -12,8 +12,6 @@ const JoinToMix = async () => {
   );
 
   const rowCount = profileCreate?.rowCount || 0;
-  console.log("rowCount", rowCount);
-  console.log("userId", userId);
   return (
     <div className="flex flex-col justify-center items-center w-11/12 gap-3 mt-4 ">
       <h1 className="w-full text-lg text-center ml-5">

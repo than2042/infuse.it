@@ -25,8 +25,6 @@ export default function ProfileForm({
       ...data,
       [e.target.name]: e.target.value,
     });
-    console.log(e.target.name);
-    console.log(e.target.value);
   };
 
   const handleSubmit = async (e) => {
@@ -40,15 +38,11 @@ export default function ProfileForm({
   };
 
   const handleIngChange = (event, newIngValue) => {
-    console.log("newIngValue", newIngValue);
     setIngValue(newIngValue);
-    console.log("ingValue", ingValue);
   };
 
   const handleFavChange = (event, newFavValue) => {
-    console.log("newFavValue", newFavValue);
     setFavValue(newFavValue);
-    console.log("favValue", favValue);
   };
 
   return (

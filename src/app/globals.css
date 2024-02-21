@@ -27,12 +27,11 @@
     text-wrap: balance;
   }
 }
-/* main {
-  margin: auto;
-} */
 
 .cl-rootBox {
   display: flex;
-  position: relative;
+}
+.cl-userButtonAvatarBox {
+  position: absolute;
   left: 76%;
 }

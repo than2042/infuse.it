@@ -2,18 +2,12 @@ import Image from "next/image";
 
 const Header = () => {
   return (
-    <div className="size-full">
+    <div className="w-11/12">
       <div className="flex w-4/5 m-3">
         <Image
-          width={40}
-          height={40}
-          src="/images/cocktail-logo-orange.png"
-          alt="logo"
-        />
-        <Image
-          width={80}
-          height={80}
-          src="/images/logo-with-tag-orange.png"
+          width={100}
+          height={60}
+          src="/images/logo-with-glass-orange.png"
           alt="logo"
         />
       </div>
