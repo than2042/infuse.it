@@ -18,14 +18,6 @@ export default function IngredientsInput({
         onChange={handleIngChange}
         options={ingredientsOptions}
         getOptionLabel={(option) => option.ingredients}
-        // isOptionEqualToValue={(option, value) => option.value === value.value}
-        // renderOption={(props, option) => {
-        //   return (
-        //     <li {...props} key={option.id}>
-        //       {option.ingredients}
-        //     </li>
-        //   );
-        // }}
         renderTags={(tagValue, getTagProps) => {
           return tagValue.map((option, index) => (
             <Chip
@@ -46,10 +38,6 @@ export default function IngredientsInput({
           />
         )}
       />
-      {/* <p>
-        Selected Ingredients:
-        {ingValue.length > 0 ? ingValue[0].ingredients : null}
-      </p> */}
     </div>
   );
 }

@@ -155,3 +155,10 @@ INSERT INTO cabinet (ingredients) VALUES
 ('Blackberry brandy'),
 ('Peppermint schnapps'),
 ('Creme de Cassis');
+
+-- Delete row form users
+
+ALTER TABLE fav_spirits_users
+DROP CONSTRAINT fav_spirits_users_user_id_fkey,
+ADD CONSTRAINT fav_spirits_users_user_id_fkey
+FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE;

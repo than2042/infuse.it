@@ -7,8 +7,6 @@ import { revalidatePath } from "next/cache";
 const { userId } = auth();
 
 export async function AddUserData(data, ingValue, favValue) {
-  console.log("data at actions", data);
-
   const newUser = await db.query(
     "INSERT INTO users (username, clerk_user_id, short, long, easy, complex, dairy, egg, alc_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *",
     [

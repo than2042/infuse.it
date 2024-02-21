@@ -13,8 +13,6 @@ export async function GET(request) {
   const cocktails = [...dataAlc.drinks, ...dataNonAlc.drinks];
   const { searchParams } = new URL(request.url);
   const query = searchParams.get("query");
-  // console.log(cocktails);
-  // console.log(searchParams); //to check the request url - working  const query = searchParams.get("query");
   const filteredCocktails = cocktails.filter((cocktail) => {
     return cocktail.strDrink.toLowerCase().includes(query.toLowerCase());
   });
