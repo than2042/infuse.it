@@ -72,6 +72,10 @@ export default function ProfileForm({
           data={data}
         />
         <ToggleInput handleChange={handleChange} data={data} />
+        <p className="w-11/12 p-2">
+          Please select <span className="text-orange">indigredents</span> for
+          your favourite mix.
+        </p>
         <IngredientsInput
           name="cabinet_id"
           handleIngChange={handleIngChange}

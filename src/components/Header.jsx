@@ -3,7 +3,7 @@ import Image from "next/image";
 const Header = () => {
   return (
     <div className="size-full">
-      <div className="flex w-4/5 m-9">
+      <div className="flex w-4/5 m-3">
         <Image
           width={40}
           height={40}

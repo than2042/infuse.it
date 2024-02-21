@@ -1,9 +1,14 @@
-import React from "react";
+import Link from "next/link";
 
 const CreateProfile = () => {
   return (
     <div>
-      <h2>Create Profile</h2>
+      <Link
+        className="text-orange text-center underline decoration-2 h-8"
+        href={"./create-profile"}
+      >
+        Create Profile!!!
+      </Link>
     </div>
   );
 };

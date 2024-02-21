@@ -1,31 +1,41 @@
 import { auth } from "@clerk/nextjs";
 import Link from "next/link";
+import CreateProfile from "./CreateProfile";
+import { db } from "@/db";
 
-const JoinToMix = () => {
+const JoinToMix = async () => {
   const userId = auth();
+
+  const profileCreate = await db.query(
+    `SELECT * FROM users WHERE clerk_user_id = $1`,
+    [userId]
+  );
+
+  const rowCount = profileCreate?.rowCount || 0;
+
   return (
-    <div className="flex flex-col justify-center items-center w-11/12 m-auto gap-3 mt-4 ">
-      <h1 className="w-11/12 text-xl">
-        Join to <span className="text-3xl text-orange">Infuse.it</span> with no
+    <div className="flex flex-col justify-center items-center w-11/12 gap-3 mt-4 ">
+      <h1 className="w-full text-lg text-center ml-5">
+        Join to <span className="text-2xl text-orange">Infuse.it</span> with no
         fees
       </h1>
-      {userId && (
-        <Link
-          className="bg-pink w-8/12 h-8 text-center p-1 rounded-md text-black "
-          href={"./sign-in"}
-        >
-          Sign up for infuse.it
-        </Link>
+      {!userId && rowCount === 0 && (
+        <div className="flex flex-col justify-center items-center w-11/12 gap-2 m-auto">
+          <Link
+            className="bg-pink w-8/12 h-8 text-center p-1 rounded-md text-black hover:bg-green "
+            href="sign-up"
+          >
+            Sign up for infuse.it
+          </Link>
+          <Link
+            className="bg-white w-9/12 h-8 text-center p-1 rounded-md text-black hover:bg-green"
+            href={"./sign-in"}
+          >
+            I already have an account
+          </Link>
+        </div>
       )}
-
-      {userId && (
-        <Link
-          className="bg-white w-8/12 h-8 text-center p-1 rounded-md text-black"
-          href={"./sign-in"}
-        >
-          I already have an account
-        </Link>
-      )}
+      {userId && rowCount === 0 && <CreateProfile />}
     </div>
   );
 };
