@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import NavBar from "@/components/NavBar";
 
 export default function Search() {
   const [drinks, setDrinks] = useState([]);
@@ -58,6 +59,7 @@ export default function Search() {
           </div>
         ))}
       </div>
+      <NavBar />
     </div>
   );
 }

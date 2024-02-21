@@ -3,6 +3,7 @@ import { revalidatePath } from "next/cache";
 import { db } from "@/db";
 import { auth } from "@clerk/nextjs";
 import FavouriteButton from "@/components/FavouriteButton";
+import NavBar from "@/components/NavBar";
 
 export const metadata = {
   title: "More details",
@@ -107,14 +108,12 @@ export default async function SinglePostPage({ params }) {
                 <h3>Glass</h3>
                 <p>{detail.strGlass}</p>
               </div>
-              <nav>
-                <Link href="/search">Return to Cocktail List</Link>
-              </nav>
             </div>
           ))}
           ;
         </ul>
       </div>
+      <NavBar />
     </>
   );
 }
