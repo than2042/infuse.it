@@ -38,10 +38,16 @@ export async function AddUserData(data, ingValue, favValue) {
   // mapping through array of values from cabinet ingredients input, spreading ingIds, adding new rows to table
   const ingValues = ingValue.map((obj) => [user_id, obj.id]);
 
-  const ingQuery = `
+  let ingQuery;
+  if (ingValues.length === 1) {
+    ingQuery = `INSERT INTO cabinet_users (user_id, cabinet_id) VALUES ($1, $2)`;
+  } else {
+    ingQuery = `
     INSERT INTO cabinet_users (user_id, cabinet_id) VALUES ${ingValues
       .map((_, index) => `($1, $${index + 2})`)
       .join(", ")}`;
+  }
+
   const ingIds = ingValues.map((obj) => obj[1]);
 
   await db.query(ingQuery, [user_id, ...ingIds]);
