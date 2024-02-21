@@ -3,7 +3,7 @@ import JoinToMix from "@/components/JoinToMix";
 
 const HomePage = () => {
   return (
-    <div className="m-auto flex flex-col justify-center w-11/12">
+    <div className="flex flex-col justify-center w-full">
       <HomeStatic />
       <JoinToMix />
     </div>

@@ -21,6 +21,14 @@
   padding: 0;
   box-sizing: border-box;
 }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Playfair Display", serif;
+}
 
 @layer utilities {
   .text-balance {
@@ -34,4 +42,18 @@
 .cl-userButtonAvatarBox {
   position: absolute;
   left: 76%;
+}
+
+.custom-width {
+  width: 23rem;
+}
+.profile-form {
+  width: 50%;
+}
+.MuiTextField-root {
+  width: 18.5rem;
+}
+
+.profile-btn {
+  width: 9.5rem;
 }
