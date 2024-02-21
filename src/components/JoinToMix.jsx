@@ -4,7 +4,7 @@ import CreateProfile from "./CreateProfile";
 import { db } from "@/db";
 
 const JoinToMix = async () => {
-  const userId = auth();
+  const { userId } = auth();
 
   const profileCreate = await db.query(
     `SELECT * FROM users WHERE clerk_user_id = $1`,
@@ -12,14 +12,15 @@ const JoinToMix = async () => {
   );
 
   const rowCount = profileCreate?.rowCount || 0;
-
+  console.log("rowCount", rowCount);
+  console.log("userId", userId);
   return (
     <div className="flex flex-col justify-center items-center w-11/12 gap-3 mt-4 ">
       <h1 className="w-full text-lg text-center ml-5">
         Join to <span className="text-2xl text-orange">Infuse.it</span> with no
         fees
       </h1>
-      {!userId && rowCount === 0 && (
+      {!userId && (
         <div className="flex flex-col justify-center items-center w-11/12 gap-2 m-auto">
           <Link
             className="bg-pink w-8/12 h-8 text-center p-1 rounded-md text-black hover:bg-green "

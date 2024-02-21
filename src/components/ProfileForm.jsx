@@ -31,8 +31,12 @@ export default function ProfileForm({
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await submitAction();
-    setData("");
+    try {
+      await submitAction();
+      setData("");
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const handleIngChange = (event, newIngValue) => {

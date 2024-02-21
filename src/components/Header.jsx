@@ -10,12 +10,6 @@ const Header = () => {
           src="/images/cocktail-logo-orange.png"
           alt="logo"
         />
-        {/* <Image
-          width={80}
-          height={80}
-          src="/images/logo-orange.png"
-          alt="logo"
-        /> */}
         <Image
           width={80}
           height={80}
