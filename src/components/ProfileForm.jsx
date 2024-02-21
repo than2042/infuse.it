@@ -49,7 +49,7 @@ export default function ProfileForm({
     <>
       <form
         onSubmit={handleSubmit}
-        className="w-9/12 m-auto flex flex-col gap-5 mt-7"
+        className="w-9/12 m-auto flex flex-col gap-5 mt-7 tablet: profile-form"
       >
         <TextField
           id="standard-basic"
@@ -80,7 +80,10 @@ export default function ProfileForm({
           ingredientsOptions={ingredientsOptions}
           ingValue={ingValue}
         />
-        <button type="submit" className="w-5/12 h-11 bg-pink rounded-md mt-5">
+        <button
+          type="submit"
+          className="w-5/12 h-11 bg-pink rounded-md mt-5 tablet: text-lg profile-btn"
+        >
           Submit
         </button>
       </form>
