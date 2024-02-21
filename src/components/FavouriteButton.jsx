@@ -12,11 +12,11 @@ export default function FavouriteButton({
     <>
       {favStatus ? (
         <IconButton onClick={async () => handleDeleteFav()}>
-          <FavoriteIcon />
+          <FavoriteIcon fontSize="large" sx={{ color: "#F66640" }} />
         </IconButton>
       ) : (
         <IconButton onClick={async () => handleAddFav()}>
-          <FavoriteBorderIcon />
+          <FavoriteBorderIcon fontSize="large" sx={{ color: "#F66640" }} />
         </IconButton>
       )}
     </>
