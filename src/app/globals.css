@@ -27,3 +27,11 @@
     text-wrap: balance;
   }
 }
+
+.cl-rootBox {
+  display: flex;
+}
+.cl-userButtonAvatarBox {
+  position: absolute;
+  left: 76%;
+}

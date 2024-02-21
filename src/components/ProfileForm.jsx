@@ -25,26 +25,24 @@ export default function ProfileForm({
       ...data,
       [e.target.name]: e.target.value,
     });
-    console.log(e.target.name);
-    console.log(e.target.value);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await submitAction();
-    setData("");
+    try {
+      await submitAction();
+      setData("");
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const handleIngChange = (event, newIngValue) => {
-    console.log("newIngValue", newIngValue);
     setIngValue(newIngValue);
-    console.log("ingValue", ingValue);
   };
 
   const handleFavChange = (event, newFavValue) => {
-    console.log("newFavValue", newFavValue);
     setFavValue(newFavValue);
-    console.log("favValue", favValue);
   };
 
   return (
@@ -72,16 +70,17 @@ export default function ProfileForm({
           data={data}
         />
         <ToggleInput handleChange={handleChange} data={data} />
+        <p className="w-11/12 p-2">
+          Please select <span className="text-orange">indigredents</span> for
+          your favourite mix.
+        </p>
         <IngredientsInput
           name="cabinet_id"
           handleIngChange={handleIngChange}
           ingredientsOptions={ingredientsOptions}
           ingValue={ingValue}
         />
-        <button
-          type="submit"
-          className="w-5/12 h-11 bg-pink-300 rounded-md mt-5"
-        >
+        <button type="submit" className="w-5/12 h-11 bg-pink rounded-md mt-5">
           Submit
         </button>
       </form>
