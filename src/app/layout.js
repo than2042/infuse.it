@@ -19,7 +19,7 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
   const { userId } = auth();
-
+  console.log("DATABASE_URL", process.env.DATABASE_URL);
   // const profileCreate = await db.query(
   //   `SELECT * FROM users WHERE clerk_user_id = $1`,
   //   [userId]
