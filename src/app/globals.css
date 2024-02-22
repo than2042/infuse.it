@@ -118,16 +118,37 @@ h6 {
     height: 3rem;
     font-size: medium;
   }
+  .singleImg {
+    width: 42rem;
+  }
+  .desktop-display {
+    display: flex;
+    gap: 4;
+  }
+  .ingredent {
+    margin: 2rem;
+  }
+  .instruction {
+    margin-left: 2rem;
+  }
+  .single-page {
+    display: flex;
+    justify-content: center;
+    align-self: baseline;
+    margin: 1rem 0;
+  }
+  .single-drink {
+    font-size: 2.5rem;
+  }
 }
 
 @media (min-width: 900px) {
-  .display-img {
-    display: flex;
-  }
-
   .profile-form-img {
     width: 42rem;
     position: absolute;
     right: 10rem;
+  }
+  .display-img {
+    display: flex;
   }
 }
