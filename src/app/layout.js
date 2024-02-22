@@ -1,4 +1,4 @@
-import { Inter, Montserrat } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import { ClerkProvider, auth, UserButton } from "@clerk/nextjs";
 import { FormProvider } from "@/context/FormContext";
 import Header from "@/components/Header";
@@ -7,7 +7,6 @@ import { UserProvider } from "@/context/UserContext";
 
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
 const montserratFont = Montserrat({ subsets: ["latin"] });
 
 export const metadata = {
@@ -21,6 +20,7 @@ export default async function RootLayout({ children }) {
   return (
     <ClerkProvider>
       <FormProvider>
+
         <ApiProvider>
           <UserProvider userId={userId}>
             <html lang="en">
@@ -34,6 +34,7 @@ export default async function RootLayout({ children }) {
             </html>
           </UserProvider>
         </ApiProvider>
+
       </FormProvider>
     </ClerkProvider>
   );

@@ -5,6 +5,7 @@ import IngredientsInput from "./IngredientsInput";
 import ToggleInput from "./ToggleInput";
 import TextField from "@mui/material/TextField";
 import { useForm } from "@/context/FormContext";
+import ProfileFromImage from "@/components/ProfileFromImage";
 
 export default function ProfileForm({
   fav_spiritsOptions,
@@ -46,44 +47,50 @@ export default function ProfileForm({
   };
 
   return (
-    <>
-      <form
-        onSubmit={handleSubmit}
-        className="w-9/12 m-auto flex flex-col gap-5 mt-7"
-      >
-        <TextField
-          id="standard-basic"
-          label="Username"
-          variant="standard"
-          name="username"
-          onChange={handleChange}
-        />
-        <SelectSpiritsOptions
-          name="fav_spirits_id"
-          handleFavChange={handleFavChange}
-          fav_spiritsOptions={fav_spiritsOptions}
-          favValue={favValue}
-        />
-        <SelectAlcOptions
-          name="alc_id"
-          handleChange={handleChange}
-          data={data}
-        />
-        <ToggleInput handleChange={handleChange} data={data} />
-        <p className="w-11/12 p-2">
-          Please select <span className="text-orange">indigredents</span> for
-          your favourite mix.
-        </p>
-        <IngredientsInput
-          name="cabinet_id"
-          handleIngChange={handleIngChange}
-          ingredientsOptions={ingredientsOptions}
-          ingValue={ingValue}
-        />
-        <button type="submit" className="w-5/12 h-11 bg-pink rounded-md mt-5">
-          Submit
-        </button>
-      </form>
-    </>
+    <div>
+      <div className="flex">
+        <form
+          onSubmit={handleSubmit}
+          className="w-9/12 m-auto flex flex-col gap-5 mt-7 profile-form"
+        >
+          <TextField
+            id="standard-basic"
+            label="Username"
+            variant="standard"
+            name="username"
+            onChange={handleChange}
+          />
+          <SelectSpiritsOptions
+            name="fav_spirits_id"
+            handleFavChange={handleFavChange}
+            fav_spiritsOptions={fav_spiritsOptions}
+            favValue={favValue}
+          />
+          <SelectAlcOptions
+            name="alc_id"
+            handleChange={handleChange}
+            data={data}
+          />
+          <ToggleInput handleChange={handleChange} data={data} />
+          <p className="w-11/12 mt-5">
+            Please select <span className="text-orange">indigredents</span> for
+            your favourite mix.
+          </p>
+          <IngredientsInput
+            name="cabinet_id"
+            handleIngChange={handleIngChange}
+            ingredientsOptions={ingredientsOptions}
+            ingValue={ingValue}
+          />
+          <button
+            type="submit"
+            className="w-5/12 h-11 bg-pink rounded-md mt-5 tablet: text-lg profile-btn"
+          >
+            Submit
+          </button>
+        </form>
+        <ProfileFromImage />
+      </div>
+    </div>
   );
 }

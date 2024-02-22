@@ -21,6 +21,15 @@
   padding: 0;
   box-sizing: border-box;
 }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Playfair Display", serif;
+  font-size: 2rem;
+}
 
 @layer utilities {
   .text-balance {
@@ -31,7 +40,115 @@
 .cl-rootBox {
   display: flex;
 }
+
 .cl-userButtonAvatarBox {
   position: absolute;
   left: 76%;
+}
+
+.display-img {
+  display: none;
+}
+
+@media only screen and (min-width: 768px) {
+  .header-container {
+    display: flex;
+  }
+
+  .header {
+    width: 100%;
+    margin: auto;
+  }
+
+  .cl-userButtonAvatarBox {
+    position: absolute;
+    left: 90%;
+  }
+
+  .custom-width {
+    width: 23rem;
+    height: 10rem;
+    position: absolute;
+    right: 20%;
+    background: #f9f4f0;
+    opacity: 0.5;
+    border-radius: 1rem;
+  }
+
+  .profile-form {
+    width: 50%;
+  }
+
+  .MuiTextField-root {
+    width: 18.8rem;
+  }
+
+  .profile-btn {
+    width: 9.5rem;
+  }
+
+  .MuiFormControl-root {
+    margin-left: 0 !important;
+    margin-top: 1rem;
+  }
+
+  .search-container {
+    display: flex;
+    flex-direction: row;
+    gap: 30rem;
+  }
+
+  .search-header {
+    font-size: 2rem;
+    margin-left: 6rem;
+  }
+
+  .search-images {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 3rem;
+  }
+
+  .searchImg {
+    width: 20rem;
+  }
+
+  .search-input {
+    width: 22rem;
+    height: 3rem;
+    font-size: medium;
+  }
+  .singleImg {
+    width: 42rem;
+  }
+  .desktop-display {
+    display: flex;
+    gap: 4;
+  }
+  .ingredent {
+    margin: 2rem;
+  }
+  .instruction {
+    margin-left: 2rem;
+  }
+  .single-page {
+    display: flex;
+    justify-content: center;
+    align-self: baseline;
+    margin: 1rem 0;
+  }
+  .single-drink {
+    font-size: 2.5rem;
+  }
+}
+
+@media (min-width: 900px) {
+  .profile-form-img {
+    width: 42rem;
+    position: absolute;
+    right: 10rem;
+  }
+  .display-img {
+    display: flex;
+  }
 }
