@@ -15,7 +15,7 @@ export default function Search() {
         : "/api/retrieveCocktails";
       const response = await fetch(api);
       const data = response.json(); //added removed line of code
-      setDrinks(data);
+      setDrinks(data || []);
     }
     fetchDrinks();
   }, [searchQuery]);
