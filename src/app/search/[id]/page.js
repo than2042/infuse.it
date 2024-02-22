@@ -22,7 +22,8 @@ export default async function SinglePostPage({ params }) {
     `SELECT id FROM users WHERE clerk_user_id = $1`,
     [userId]
   );
-  const user_id = userIdRes.rows[0];
+  const user_id = userIdRes.rows[0].id;
+  console.log(user_id);
 
   const favRes = await db.query(
     `SELECT * FROM favourite WHERE user_id = $1 AND cocktail_id = $2`,
@@ -32,7 +33,6 @@ export default async function SinglePostPage({ params }) {
 
   async function handleAddFav() {
     "use server";
-
     await db.query(
       `INSERT INTO favourite (user_id, cocktail_id) VALUES ($1, $2)`,
       [user_id, params.id]

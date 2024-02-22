@@ -34,7 +34,7 @@ export default function ProfileForm({
       await submitAction();
       setData("");
     } catch (err) {
-      console.log(err);
+      console.log("err", err);
     }
   };
 

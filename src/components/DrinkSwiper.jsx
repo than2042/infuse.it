@@ -11,15 +11,15 @@ import Link from "next/link";
 import SwiperNavButtons from "./SwiperNavButtons";
 
 export default function DrinkSwiper({ dataList, listTitle }) {
-  const [data, setData] = useState([]);
+  // const [data, setData] = useState([]);
   const swiper = useSwiper();
 
-  useEffect(() => {
-    if (dataList) {
-      setData(dataList.drinks || []);
-    }
-  }, [dataList]);
+  // useEffect(() => {
+  //   setData(dataList);
+  // }, [dataList]);
   console.log(dataList, "datalist");
+  // console.log(data, "data");
+
   return (
     <div className="bg-neutral-100 m-2">
       <Swiper
@@ -34,7 +34,7 @@ export default function DrinkSwiper({ dataList, listTitle }) {
           1275: { slidesPerView: 8 },
         }}
       >
-        {data.map((item) => (
+        {dataList.map((item) => (
           <SwiperSlide
             key={item.idDrink}
             className="!flex justify-center items-center "

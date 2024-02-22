@@ -2,32 +2,44 @@
 import * as React from "react";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
+import { useState } from "react";
 
 export default function ToggleInput({ handleChange }) {
+  const [preferences, setPreferences] = useState([]);
+
+  const handleToggle = (event, newPreferences) => {
+    setPreferences(newPreferences);
+    handleChange(event, newPreferences);
+  };
+
   return (
-    <ToggleButtonGroup color="primary" exclusive onChange={handleChange}>
+    <ToggleButtonGroup
+      color="primary"
+      value={preferences}
+      onChange={handleToggle}
+    >
       <div className="flex gap-2">
         <div className="w-3/5 flex flex-col gap-2">
-          <ToggleButton value={true} name="short" className="m-1">
+          <ToggleButton value="short" name="short" className="m-1">
             Short
           </ToggleButton>
-          <ToggleButton value={true} name="Long">
+          <ToggleButton value="Long" name="Long">
             Long
           </ToggleButton>
         </div>
         <div className="w-3/5 flex flex-col gap-2 ">
-          <ToggleButton value={true} name="Easy">
+          <ToggleButton value="Easy" name="Easy">
             Easy
           </ToggleButton>
-          <ToggleButton value={true} name="Complex">
+          <ToggleButton value="Complex" name="Complex">
             Complex
           </ToggleButton>
         </div>
         <div className="w-3/5 flex flex-col gap-2 ">
-          <ToggleButton value={true} name="Egg">
+          <ToggleButton value="Egg" name="Egg">
             Egg
           </ToggleButton>
-          <ToggleButton value={true} name="Dairy">
+          <ToggleButton value="Dairy" name="Dairy">
             Dairy
           </ToggleButton>
         </div>

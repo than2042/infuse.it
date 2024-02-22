@@ -20,11 +20,10 @@ export default async function RootLayout({ children }) {
   return (
     <ClerkProvider>
       <FormProvider>
-
         <ApiProvider>
           <UserProvider userId={userId}>
             <html lang="en">
-              <body className={inter.className}>
+              <body>
                 <div className="flex justify-evenly m-auto">
                   {userId && <UserButton afterSignOutUrl="/" />}
                   <Header />
@@ -34,8 +33,9 @@ export default async function RootLayout({ children }) {
             </html>
           </UserProvider>
         </ApiProvider>
-
       </FormProvider>
     </ClerkProvider>
   );
 }
+
+// className={inter.className}

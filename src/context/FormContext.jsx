@@ -1,6 +1,7 @@
 "use client";
 import { createContext, useState, useContext } from "react";
 import { AddUserData } from "../lib/actions";
+import { UpdateUserData } from "../lib/actions";
 
 export const FormContext = createContext();
 
@@ -18,10 +19,18 @@ export const FormProvider = ({ children }) => {
   });
 
   const [ingValue, setIngValue] = useState([]);
+  console.log("ingValue context", ingValue);
 
   const [favValue, setFavValue] = useState([]);
 
   const submitAction = AddUserData.bind(null, data, ingValue, favValue);
+
+  const submitActionUpdate = UpdateUserData.bind(
+    null,
+    data,
+    ingValue,
+    favValue
+  );
 
   return (
     <FormContext.Provider
@@ -29,6 +38,7 @@ export const FormProvider = ({ children }) => {
         data,
         setData,
         submitAction,
+        submitActionUpdate,
         ingValue,
         setIngValue,
         favValue,
