@@ -53,16 +53,18 @@ export default async function Profile() {
   }
 
   return (
-    <>
-      <h2>Profile Page</h2>
-      <ProfileAccordion
-        userInfo={userInfo}
-        cabinetIng={cabinetIng}
-        favSpirits={favSpirits}
-        handleDeleteIng={handleDeleteIng}
-        ingredientsOptions={ingredientsOptions}
-      />
-      <NavBar />
-    </>
+    <div className="profile-form-container">
+      <div className="profile-form">
+        <h2 className="mb-7 pl-4 text-4xl">Profile Page</h2>
+        <ProfileAccordion
+          userInfo={userInfo}
+          cabinetIng={cabinetIng}
+          favSpirits={favSpirits}
+          handleDeleteIng={handleDeleteIng}
+          ingredientsOptions={ingredientsOptions}
+        />
+        <NavBar />
+      </div>
+    </div>
   );
 }

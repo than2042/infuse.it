@@ -50,6 +50,12 @@ h6 {
   display: none;
 }
 
+.not-found {
+  width: 90%;
+  margin: auto;
+  padding: 1rem;
+}
+
 @media only screen and (min-width: 768px) {
   .header-container {
     display: flex;
@@ -73,10 +79,6 @@ h6 {
     background: #f9f4f0;
     opacity: 0.5;
     border-radius: 1rem;
-  }
-
-  .profile-form {
-    width: 50%;
   }
 
   .MuiTextField-root {
@@ -118,19 +120,31 @@ h6 {
     height: 3rem;
     font-size: medium;
   }
+
+  .single-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 70%;
+  }
+
   .singleImg {
     width: 42rem;
   }
+
   .desktop-display {
     display: flex;
-    gap: 4;
   }
   .ingredent {
     margin: 2rem;
+    width: 30%;
   }
   .instruction {
     margin-left: 2rem;
+    width: 40%;
   }
+
   .single-page {
     display: flex;
     justify-content: center;
@@ -139,6 +153,27 @@ h6 {
   }
   .single-drink {
     font-size: 2.5rem;
+    margin-left: 0;
+  }
+  .profile-form-container {
+    height: 100vh;
+    background-image: url("/images/rum.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: auto;
+  }
+  .profile-form {
+    width: 45%;
+    margin: auto;
+    padding: 7rem 6rem 0 6rem;
+    position: relative;
+    left: 10%;
+    top: 15.5%;
+  }
+  .not-found {
+    width: 50%;
+    margin: auto;
+    padding: 5rem;
   }
 }
 

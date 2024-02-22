@@ -4,6 +4,7 @@ import { FormProvider } from "@/context/FormContext";
 import Header from "@/components/Header";
 import { ApiProvider } from "@/context/ApiContext";
 import { UserProvider } from "@/context/UserContext";
+import { db } from "@/db";
 
 import "./globals.css";
 
@@ -16,6 +17,13 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
   const { userId } = auth();
+
+  // const profileCreate = await db.query(
+  //   `SELECT * FROM users WHERE clerk_user_id = $1`,
+  //   [userId]
+  // );
+
+  // const rowCount = profileCreate?.rowCount || 0;
 
   return (
     <ClerkProvider>

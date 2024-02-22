@@ -51,7 +51,7 @@ export default function ProfileForm({
       <div className="flex">
         <form
           onSubmit={handleSubmit}
-          className="w-9/12 m-auto flex flex-col gap-5 mt-7 profile-form"
+          className="w-9/12 m-auto flex flex-col gap-5 mt-7 mb-5 profile-form"
         >
           <TextField
             id="standard-basic"
