@@ -34,6 +34,7 @@ export default async function Favourites() {
     [userId]
   );
   const cabinetIng = cabinetRes.rows;
+
   // cabinetIng and favSpirits return array of objects
 
   const latestRes = await fetch(

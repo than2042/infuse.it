@@ -21,7 +21,7 @@ export default async function RootLayout({ children }) {
       <FormProvider>
         <html lang="en">
           <body>
-            <div className="flex justify-evenly m-auto">
+            <div className="flex justify-evenly m-auto header-container">
               {userId && <UserButton afterSignOutUrl="/" />}
               <Header />
             </div>

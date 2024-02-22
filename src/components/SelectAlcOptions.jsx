@@ -8,7 +8,11 @@ import Select from "@mui/material/Select";
 export default function SelectAlcOptions({ handleChange, data }) {
   return (
     <div>
-      <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+      <FormControl
+        className="form-control"
+        variant="standard"
+        sx={{ m: 1, minWidth: 120 }}
+      >
         <InputLabel id="demo-simple-select-standard-label">
           Alcoholic/Non
         </InputLabel>

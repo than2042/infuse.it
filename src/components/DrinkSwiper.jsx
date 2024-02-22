@@ -39,7 +39,11 @@ export default function DrinkSwiper({ dataList, listTitle }) {
             key={item.idDrink}
             className="!flex justify-center items-center "
           >
-            <div className="relative overflow-hidden mx-2 w-[150px] h-[150px] pt-1 flex justify-center items-center rounded-sm">
+            <div
+              className="relative overflow-hidden mx-2 w-[150px] h-[150px] pt-1 flex justify-center items-center rounded-sm"
+              role="img"
+              aria-labelledby={item.strDrink}
+            >
               <Link href={`/search/${item.idDrink}`}>
                 <Image
                   src={item.strDrinkThumb}

@@ -27,7 +27,12 @@ const HomeStatic = () => {
           <div className=" grid grid-cols-2 gap-8 m-auto tablet:grid-cols-2 laptop:grid-cols-3 desktop:grid-cols-4 ">
             {arryImage.map((item) => {
               return (
-                <div key={item.title} className="flex justify-evenly gap-1">
+                <div
+                  key={item.title}
+                  className="flex justify-evenly gap-1"
+                  role="img"
+                  aria-labelledby={item.image}
+                >
                   <Image
                     width={150}
                     height={70}

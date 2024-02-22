@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const DesktopScreen = () => {
   return (
-    <div className="w-full">
+    <div className="w-full" role="img" aria-labelledby="cocktail Image">
       <Image
         width={900}
         height={100}
