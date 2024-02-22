@@ -2,6 +2,8 @@ import { Inter, Montserrat } from "next/font/google";
 import { ClerkProvider, auth, UserButton } from "@clerk/nextjs";
 import { FormProvider } from "@/context/FormContext";
 import Header from "@/components/Header";
+import { ApiProvider } from "@/context/ApiContext";
+import { UserProvider } from "@/context/UserContext";
 
 import "./globals.css";
 
@@ -19,15 +21,19 @@ export default async function RootLayout({ children }) {
   return (
     <ClerkProvider>
       <FormProvider>
-        <html lang="en">
-          <body className={inter.className}>
-            <div className="flex justify-evenly m-auto">
-              {userId && <UserButton afterSignOutUrl="/" />}
-              <Header />
-            </div>
-            <main className={montserratFont.className}>{children}</main>
-          </body>
-        </html>
+        <ApiProvider>
+          <UserProvider userId={userId}>
+            <html lang="en">
+              <body className={inter.className}>
+                <div className="flex justify-evenly m-auto">
+                  {userId && <UserButton afterSignOutUrl="/" />}
+                  <Header />
+                </div>
+                <main className={montserratFont.className}>{children}</main>
+              </body>
+            </html>
+          </UserProvider>
+        </ApiProvider>
       </FormProvider>
     </ClerkProvider>
   );
