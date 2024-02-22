@@ -23,8 +23,8 @@ export default async function RootLayout({ children }) {
         <ApiProvider>
           <UserProvider userId={userId}>
             <html lang="en">
-              {/* changed from inter to montserrat*/}
               <body className={montserratFont.className}>
+              <body>
                 <div className="flex justify-evenly m-auto">
                   {userId && <UserButton afterSignOutUrl="/" />}
                   <Header />

@@ -4,9 +4,9 @@ import Link from "next/link";
 import Image from "next/image";
 import NavBar from "@/components/NavBar";
 
-export default function Search() {
+export default function MyFavourite() {
   const [drinks, setDrinks] = useState([]);
-  const [searchQuery, setSearchQuery] = useState("");
+  //   const [myFav, setMyFav] = useState("");
 
   useEffect(() => {
     async function fetchDrinks() {
@@ -14,40 +14,33 @@ export default function Search() {
         ? `/api/retrieveCocktails/search?query=${searchQuery}`
         : "/api/retrieveCocktails";
       const response = await fetch(api);
-      const data = await response.json(); //added removed line of code
+      const data = await JSON.response();
       setDrinks(data);
     }
     fetchDrinks();
-  }, [searchQuery]);
+  }, []);
 
   return (
-    <div className="flex flex-col margin-10 m-auto">
-      <div className="flex flex-col gap-1 items-center search-container">
-        <h2 className="p-4 text-xl tablet: text-1xl p5 search-header">
-          Browse or Search your Favourite Drinks
-        </h2>
+    <div className="flex flex-col margin-10">
+      <p>My Favourite</p>
+      {/* <div className="flex flex-col gap-10 items-center p-6 ">
         <form
-          className="flex justify-center w-2/3 search-input"
+          className="flex justify-center w-2/3"
           onSubmit={(e) => e.preventDefault()}
         >
           <input
             type="text"
-            value={searchQuery}
-            onChange={(event) => setSearchQuery(event.target.value)}
-            className="px-5 py-1 w-2/3 sm:px5 sm:py3 flex-1 text-orange bg-white border-black rounded-full "
+            value={myFav}
+            onChange={(event) => setMyFav(event.target.value)}
+            className="px-5 py-1 w-2/3 sm:px5 sm:py3 flex-1 text-orange bg-white border-black rounded-full"
             placeholder="What are you in the mood for?"
           />
         </form>
-      </div>
+      </div> */}
 
-      <div className="mt-8 grid grid-cols-2 gap-10 tablet: search-images ">
+      <div className="mt-8 grid grid-cols-2 gap-10">
         {drinks.map((drink, index) => (
-          <div
-            key={drink.idDrink}
-            className="flex justify-evenly gap-1 "
-            role="img"
-            aria-label={drink.strDrink}
-          >
+          <div key={drink.idDrink} className="flex justify-evenly gap-1">
             <Link key={drink.index} href={`/search/${drink.idDrink}`}>
               <Image
                 src={drink.strDrinkThumb}
@@ -55,7 +48,7 @@ export default function Search() {
                 width={150}
                 alt={drink.strDrink}
                 title={drink.strDrink}
-                className="object-cover rounded-md hover:opacity-75 searchImg"
+                className="object-cover rounded-md hover:opacity-75"
               />
               <div
                 key={drink.index}
