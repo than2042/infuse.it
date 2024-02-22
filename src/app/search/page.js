@@ -14,7 +14,7 @@ export default function Search() {
         ? `/api/retrieveCocktails/search?query=${searchQuery}`
         : "/api/retrieveCocktails";
       const response = await fetch(api);
-      const data = await response.json();
+      const data = response.json(); //added removed line of code
       setDrinks(data);
     }
     fetchDrinks();

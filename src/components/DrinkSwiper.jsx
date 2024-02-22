@@ -19,7 +19,7 @@ export default function DrinkSwiper({ dataList, listTitle }) {
       setData(dataList.drinks || []);
     }
   }, [dataList]);
-
+  console.log(dataList, "datalist");
   return (
     <div className="bg-neutral-100 m-2">
       <Swiper
