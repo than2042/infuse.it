@@ -40,8 +40,8 @@ export async function AddUserData(data, ingValue, favValue) {
       )
   );
 
-  revalidatePath("/recommend");
-  redirect("/recommend");
+  revalidatePath("./recommend");
+  redirect("./recommend");
 }
 
 export async function UpdateUserData(data, ingValue, favValue) {
@@ -59,6 +59,6 @@ export async function UpdateUserData(data, ingValue, favValue) {
       )
   );
 
-  revalidatePath("/profile");
-  redirect("/profile");
+  revalidatePath("./profile");
+  redirect("./profile");
 }
