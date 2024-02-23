@@ -31,7 +31,9 @@ export default function NavBar() {
         </Link>
         <Link href="/profile">
           <IconButton>
-            <PersonIcon fontSize="large" sx={{ color: "#F9F4F0" }} />
+            <Link href={"./profile"}>
+              <PersonIcon fontSize="large" sx={{ color: "#F9F4F0" }} />
+            </Link>
           </IconButton>
         </Link>
       </Toolbar>
