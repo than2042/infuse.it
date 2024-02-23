@@ -1,63 +1,70 @@
 import NavBar from "@/components/NavBar";
+import { revalidatePath } from "next/cache";
 import DrinkSwiper from "@/components/DrinkSwiper";
 import { auth } from "@clerk/nextjs";
 import { db } from "@/db";
-
+import Link from "next/link";
+import Image from "next/image";
 export default async function Favourites() {
   const { userId } = auth();
 
-  const userRes = await db.query(
-    `SELECT users.id, users.username, users.short, users.long, users.easy, users.complex, users.egg, users.dairy, alc.alc 
-    FROM users 
-    JOIN alc ON users.alc_id = alc.id
-    WHERE users.clerk_user_id = $1`,
+  const userIdRes = await db.query(
+    `SELECT id FROM users WHERE clerk_user_id = $1`,
     [userId]
   );
-  const userInfo = userRes.rows[0];
+  const user_id = userIdRes.rows[0].id;
 
-  const favSpiritsRes = await db.query(
-    `SELECT fav_spirits.fav_spirits 
-    FROM users 
-    JOIN fav_spirits_users ON users.id = fav_spirits_users.user_id 
-    JOIN fav_spirits ON fav_spirits_users.fav_spirits_id = fav_spirits.id 
-    WHERE users.clerk_user_id = $1`,
-    [userId]
+  const favRes = await db.query(
+    `SELECT cocktail_id FROM favourite WHERE user_id = $1`,
+    [user_id]
   );
-  const favSpirits = favSpiritsRes.rows;
+  const favouriteCocktailIds = favRes.rows.map((fav) => fav.cocktail_id);
 
-  const cabinetRes = await db.query(
-    `SELECT cabinet_users.cabinet_id, cabinet.ingredients 
-    FROM users 
-    JOIN cabinet_users ON users.id = cabinet_users.user_id 
-    JOIN cabinet ON cabinet_users.cabinet_id = cabinet.id 
-    WHERE users.clerk_user_id = $1`,
-    [userId]
+  // Filter the cocktail API using favourite cocktail IDs
+  const response = await fetch(
+    `https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?i=${favouriteCocktailIds.join(
+      ","
+    )}`
   );
-  const cabinetIng = cabinetRes.rows;
-
-  // cabinetIng and favSpirits return array of objects
-
-  const latestRes = await fetch(
-    "https://www.thecocktaildb.com/api/json/v2/9973533/latest.php"
-  );
-  const latest = await latestRes.json();
-
-  const ginRes = await fetch(
-    "https://www.thecocktaildb.com/api/json/v2/1/filter.php?i=Gin"
-  );
-  const gin = await ginRes.json();
-
-  const vodkaRes = await fetch(
-    "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Vodka"
-  );
-  const vodka = await vodkaRes.json();
+  const data = await response.json();
+  const drinks = data.drinks || [];
 
   return (
-    <>
-      <DrinkSwiper dataList={latest} listTitle={"Latest Cocktails"} />
-      <DrinkSwiper dataList={gin} listTitle={"Gin Cocktails"} />
-      <DrinkSwiper dataList={vodka} listTitle={"Vodka Cocktails"} />
+    <div className="flex flex-col margin-10 m-auto">
+      <div className="flex flex-col gap-1 items-center search-container">
+        <h2 className="p-4 text-xl tablet: text-1xl p5 search-header">
+          Your Favourites
+        </h2>
+      </div>
+
+      <div className="mt-8 grid grid-cols-2 gap-10 tablet: search-images ">
+        {drinks.map((drink, index) => (
+          <div
+            key={drink.idDrink}
+            className="flex justify-evenly gap-1 "
+            role="img"
+            aria-label={drink.strDrink}
+          >
+            <Link key={drink.index} href={`/search/${drink.idDrink}`}>
+              <Image
+                src={drink.strDrinkThumb}
+                height={150}
+                width={150}
+                alt={drink.strDrink}
+                title={drink.strDrink}
+                className="object-cover rounded-md hover:opacity-75 searchImg"
+              />
+              <div
+                key={drink.index}
+                className="absolute top-0 left-0 right-0 text-center text-sm bg-black bg-opacity-50 px-2 py-1 hidden hover:block"
+              >
+                {drink.strDrink}
+              </div>
+            </Link>
+          </div>
+        ))}
+      </div>
       <NavBar />
-    </>
+    </div>
   );
 }
