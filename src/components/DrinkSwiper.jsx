@@ -11,14 +11,7 @@ import Link from "next/link";
 import SwiperNavButtons from "./SwiperNavButtons";
 
 export default function DrinkSwiper({ dataList, listTitle }) {
-  // const [data, setData] = useState([]);
   const swiper = useSwiper();
-
-  // useEffect(() => {
-  //   setData(dataList);
-  // }, [dataList]);
-  console.log(dataList, "datalist");
-  // console.log(data, "data");
 
   return (
     <div className="bg-neutral-100 m-2">

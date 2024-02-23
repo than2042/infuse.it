@@ -19,6 +19,8 @@ export default function ProfileForm({
     setIngValue,
     favValue,
     setFavValue,
+    preferences,
+    setPreferences,
   } = useForm();
 
   const handleChange = (e) => {
@@ -71,17 +73,23 @@ export default function ProfileForm({
             handleChange={handleChange}
             data={data}
           />
-          <ToggleInput handleChange={handleChange} data={data} />
-          <p className="w-11/12 mt-5">
-            Please select <span className="text-orange">indigredents</span> for
-            your favourite mix.
-          </p>
-          <IngredientsInput
-            name="cabinet_id"
-            handleIngChange={handleIngChange}
-            ingredientsOptions={ingredientsOptions}
-            ingValue={ingValue}
+          <ToggleInput
+            preferences={preferences}
+            setPreferences={setPreferences}
           />
+          <div>
+            <h2 className="w-11/12 mt-5 text-orange">My Drinks Cabinet</h2>
+            <p className="w-11/12 mt-5">
+              Please select <span className="text-orange">indigredents</span>{" "}
+              for your custom mix selections.
+            </p>
+            <IngredientsInput
+              name="cabinet_id"
+              handleIngChange={handleIngChange}
+              ingredientsOptions={ingredientsOptions}
+              ingValue={ingValue}
+            />
+          </div>
           <button
             type="submit"
             className="w-5/12 h-11 bg-pink rounded-md mt-5 tablet: text-lg profile-btn"

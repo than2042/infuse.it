@@ -22,12 +22,12 @@ export default function ProfileAccordion({
     setIngValue,
     favValue,
     setFavValue,
+    preferences,
   } = useForm();
   const { userData, favSpirits, cabinetIng } = useUser();
 
   const handleIngChange = (event, newIngValue) => {
     setIngValue(newIngValue);
-    console.log("newIngValue", newIngValue);
   };
 
   const handleSubmit = async (e) => {
@@ -97,7 +97,16 @@ export default function ProfileAccordion({
           <p>{`Username: ${userData.username}`}</p>
           <p>{`Alc / Non : ${userData.alc}`}</p>
           <p>Favourite Spirits:</p>
-          <p>{`${favSpirits}`}</p>
+          {favSpirits.length > 0 &&
+            favSpirits.map((fav) => (
+              <Chip key={fav.fav_spirits + "sjkdbd"} label={fav.fav_spirits} />
+            ))}
+
+          <p>Preferences:</p>
+          {preferences.length > 0 &&
+            preferences.map((pref) => (
+              <Chip key={pref + "dkjb"} label={pref} />
+            ))}
         </AccordionDetails>
       </Accordion>
       <Accordion>

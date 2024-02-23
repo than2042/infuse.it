@@ -47,8 +47,6 @@ export async function AddUserData(data, ingValue, favValue) {
   );
   // }
 
-  console.log("ingValue actions", ingValue.id);
-
   revalidatePath("/recommend");
   redirect("/recommend");
 }

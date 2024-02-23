@@ -4,12 +4,9 @@ import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import { useState } from "react";
 
-export default function ToggleInput({ handleChange }) {
-  const [preferences, setPreferences] = useState([]);
-
+export default function ToggleInput({ preferences, setPreferences }) {
   const handleToggle = (event, newPreferences) => {
     setPreferences(newPreferences);
-    handleChange(event, newPreferences);
   };
 
   return (
