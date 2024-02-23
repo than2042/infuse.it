@@ -6,7 +6,6 @@ import NavBar from "@/components/NavBar";
 
 export default function MyFavourite() {
   const [drinks, setDrinks] = useState([]);
-  //   const [myFav, setMyFav] = useState("");
 
   useEffect(() => {
     async function fetchDrinks() {
@@ -23,20 +22,6 @@ export default function MyFavourite() {
   return (
     <div className="flex flex-col margin-10">
       <p>My Favourite</p>
-      {/* <div className="flex flex-col gap-10 items-center p-6 ">
-        <form
-          className="flex justify-center w-2/3"
-          onSubmit={(e) => e.preventDefault()}
-        >
-          <input
-            type="text"
-            value={myFav}
-            onChange={(event) => setMyFav(event.target.value)}
-            className="px-5 py-1 w-2/3 sm:px5 sm:py3 flex-1 text-orange bg-white border-black rounded-full"
-            placeholder="What are you in the mood for?"
-          />
-        </form>
-      </div> */}
 
       <div className="mt-8 grid grid-cols-2 gap-10">
         {drinks.map((drink, index) => (
