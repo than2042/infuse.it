@@ -13,7 +13,7 @@ const JoinToMix = async () => {
 
   const rowCount = profileCreate?.rowCount || 0;
   return (
-    <div className="flex flex-col justify-center items-center  w-[11/12] gap-3 m-auto tablet:absolute custom-width">
+    <div className="flex flex-col justify-center items-center  w-11/12 gap-3 m-auto tablet:absolute custom-width">
       <h1 className="w-full text-lg text-center mt-4 ml-5 tablet:text-3xl mb-1">
         Join to{" "}
         <span className="text-2xl text-orange tablet:text-4x">Infuse.it</span>{" "}
