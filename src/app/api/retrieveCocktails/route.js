@@ -27,6 +27,5 @@ export async function GET() {
   // //   `https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=11007`
   // // );
   // // const json = await responseAll.json();
-
   return Response.json(data);
 }

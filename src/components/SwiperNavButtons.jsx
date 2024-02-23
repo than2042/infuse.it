@@ -11,7 +11,7 @@ export default function SwiperNavButtons({ listTitle }) {
       <IconButton onClick={() => swiper.slidePrev()}>
         <ArrowLeftIcon fontSize="large" />
       </IconButton>
-      <h1>{listTitle}</h1>
+      <h3 className="text-xs">{listTitle}</h3>
       <IconButton onClick={() => swiper.slideNext()}>
         <ArrowRightIcon fontSize="large" />
       </IconButton>

@@ -4,8 +4,8 @@ import { useUser } from "@/context/UserContext";
 import DrinkSwiper from "./DrinkSwiper";
 import { useEffect, useState } from "react";
 
-export default function RenderedLists() {
-  const { drinks, setDrinks } = useApi();
+export default function RenderedLists({ nonAlcList, dairyList }) {
+  const { drinks } = useApi();
   const {
     userData,
     setUserData,
@@ -16,6 +16,7 @@ export default function RenderedLists() {
   } = useUser();
   const [spiritList, setSpiritList] = useState([]);
 
+  // checking the favourite spirits set the user and returning list of cocktails for each spirit to render dynamically on the page
   useEffect(() => {
     const spirits = [];
     async function checkFavSpirits() {
@@ -28,15 +29,20 @@ export default function RenderedLists() {
       });
     }
     checkFavSpirits();
-  }, [drinks, favSpirits]);
+  }, [favSpirits]);
 
   return (
     <div>
-      <DrinkSwiper dataList={spiritList.Gin} listTitle={"Gin Cocktails"} />
-      <DrinkSwiper
-        dataList={spiritList.Tequila}
-        listTitle={"Tequila Cocktails"}
-      />
+      {Object.entries(spiritList).map(([title, list]) => (
+        <DrinkSwiper key={title} dataList={list.drinks} listTitle={title} />
+      ))}
+      {userData.alc === "Non-Alcoholic" ||
+        ("Both" && (
+          <DrinkSwiper dataList={nonAlcList} listTitle={"Alcohol Free"} />
+        ))}
+      {userData.dairy === true && (
+        <DrinkSwiper dataList={dairyList} listTitle={"Contains Dairy"} />
+      )}
     </div>
   );
 }

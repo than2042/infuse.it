@@ -5,39 +5,38 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Chip from "@mui/material/Chip";
 import { useForm } from "@/context/FormContext";
+import { useUser } from "@/context/UserContext";
 import IngredientsInput from "./IngredientsInput";
 import ToggleInput from "./ToggleInput";
 import TextField from "@mui/material/TextField";
 
 export default function ProfileAccordion({
-  userInfo,
-  cabinetIng,
-  favSpirits,
   handleDeleteIng,
   ingredientsOptions,
 }) {
   const {
     data,
     setData,
-    submitAction,
+    submitActionUpdateCabinet,
     ingValue,
     setIngValue,
     favValue,
     setFavValue,
+    preferences,
   } = useForm();
+  const { userData, favSpirits, cabinetIng } = useUser();
 
   const handleIngChange = (event, newIngValue) => {
     setIngValue(newIngValue);
-    console.log("newIngValue", newIngValue);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await submitAction();
+      await submitActionUpdateCabinet();
       setData("");
     } catch (err) {
-      console.log(err);
+      console.log("err", err);
     }
   };
 
@@ -94,7 +93,21 @@ export default function ProfileAccordion({
         >
           View Preferences
         </AccordionSummary>
-        <AccordionDetails>Current Preferences</AccordionDetails>
+        <AccordionDetails>
+          <p>{`Username: ${userData.username}`}</p>
+          <p>{`Alc / Non : ${userData.alc}`}</p>
+          <p>Favourite Spirits:</p>
+          {favSpirits.length > 0 &&
+            favSpirits.map((fav) => (
+              <Chip key={fav.fav_spirits + "sjkdbd"} label={fav.fav_spirits} />
+            ))}
+
+          <p>Preferences:</p>
+          {preferences.length > 0 &&
+            preferences.map((pref) => (
+              <Chip key={pref + "dkjb"} label={pref} />
+            ))}
+        </AccordionDetails>
       </Accordion>
       <Accordion>
         <AccordionSummary

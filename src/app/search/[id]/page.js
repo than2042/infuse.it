@@ -32,7 +32,6 @@ export default async function SinglePostPage({ params }) {
 
   async function handleAddFav() {
     "use server";
-
     await db.query(
       `INSERT INTO favourite (user_id, cocktail_id) VALUES ($1, $2)`,
       [user_id, params.id]
@@ -165,7 +164,6 @@ export default async function SinglePostPage({ params }) {
           </div>
         ))}
       </div>
-
       <NavBar />
     </>
   );
