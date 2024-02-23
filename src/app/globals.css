@@ -21,15 +21,6 @@
   padding: 0;
   box-sizing: border-box;
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Playfair Display", serif;
-  font-size: 2rem;
-}
 
 @layer utilities {
   .text-balance {
@@ -56,6 +47,12 @@ h6 {
   padding: 1rem;
 }
 
+.MuiFormControl-root {
+  width: 18.5rem;
+  margin-left: 0 !important;
+  margin-top: 1rem;
+}
+
 @media only screen and (min-width: 768px) {
   .header-container {
     display: flex;
@@ -72,10 +69,10 @@ h6 {
   }
 
   .custom-width {
-    width: 23rem;
-    height: 10rem;
+    width: 30rem;
+    height: 12rem;
     position: absolute;
-    right: 20%;
+    right: 15%;
     background: #f9f4f0;
     opacity: 0.5;
     border-radius: 1rem;
@@ -90,6 +87,7 @@ h6 {
   }
 
   .MuiFormControl-root {
+    width: 18.5rem;
     margin-left: 0 !important;
     margin-top: 1rem;
   }
@@ -163,7 +161,7 @@ h6 {
     margin: auto;
   }
   .profile-form {
-    width: 45%;
+    width: 90%;
     margin: auto;
     padding: 7rem 6rem 0 6rem;
     position: relative;
