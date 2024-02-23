@@ -4,6 +4,8 @@ import { FormProvider } from "@/context/FormContext";
 import Header from "@/components/Header";
 import { ApiProvider } from "@/context/ApiContext";
 import { UserProvider } from "@/context/UserContext";
+// import CreateProfile from "@/components/CreateProfile";
+// import { db } from "@/db";
 
 import "./globals.css";
 
@@ -17,18 +19,29 @@ export const metadata = {
 export default async function RootLayout({ children }) {
   const { userId } = auth();
 
+  // const profileCreate = await db.query(
+  //   `SELECT * FROM users WHERE clerk_user_id = $1`,
+  //   [userId]
+  // );
+  // console.log("profileCreate", profileCreate);
+
+  // const rowCount = profileCreate?.rowCount || 0;
+  // console.log(rowCount);
   return (
     <ClerkProvider>
       <FormProvider>
         <ApiProvider>
           <UserProvider userId={userId}>
             <html lang="en">
-              <body>
+              <body className={montserratFont.className}>
                 <div className="flex justify-evenly m-auto">
                   {userId && <UserButton afterSignOutUrl="/" />}
                   <Header />
                 </div>
+                {/* {rowCount !== 0 && ( */}
                 <main className={montserratFont.className}>{children}</main>
+                {/* )} */}
+                {/* {userId && rowCount === 0 && <CreateProfile />} */}
               </body>
             </html>
           </UserProvider>
@@ -38,4 +51,3 @@ export default async function RootLayout({ children }) {
   );
 }
 
-// className={inter.className}

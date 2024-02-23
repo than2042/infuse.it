@@ -32,12 +32,6 @@ export async function AddUserData(data, ingValue, favValue) {
       )
   );
 
-  // if (ingValue.length === 1) {
-  //   await db.query(
-  //     `INSERT INTO cabinet_users (user_id, cabinet_id) VALUES ($1, $2)`,
-  //     [user_id, ingValue[0].id]
-  //   );
-  // } else {
   ingValue.map(
     async (ing) =>
       await db.query(
@@ -45,7 +39,6 @@ export async function AddUserData(data, ingValue, favValue) {
         [user_id, ing.id]
       )
   );
-  // }
 
   revalidatePath("/recommend");
   redirect("/recommend");
@@ -58,12 +51,6 @@ export async function UpdateUserData(data, ingValue, favValue) {
   );
   const user_id = userIdRes.rows[0].id;
 
-  // if (ingValue.length === 1) {
-  //   await db.query(
-  //     `INSERT INTO cabinet_users (user_id, cabinet_id) VALUES ($1, $2)`,
-  //     [user_id, ingValue[0].id]
-  //   );
-  // } else {
   ingValue.map(
     async (ing) =>
       await db.query(
@@ -71,8 +58,8 @@ export async function UpdateUserData(data, ingValue, favValue) {
         [user_id, ing.id]
       )
   );
-  // }
 
   revalidatePath("/profile");
   redirect("/profile");
+
 }
