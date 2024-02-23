@@ -54,6 +54,6 @@ export async function AddUserData(data, ingValue, favValue) {
   const ingIds = ingValues.map((obj) => obj[1]);
   await db.query(ingQuery, [user_id, ...ingIds]);
 
-  revalidatePath("/");
-  redirect("/");
+  revalidatePath("/recommend");
+  redirect("/recommend");
 }

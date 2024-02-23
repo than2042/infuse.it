@@ -51,8 +51,8 @@ export default function DrinkSwiper({ dataList, listTitle }) {
                   height={150}
                   alt={item.strDrink}
                 />
-                <div className="absolute inset-0 flex justify-center items-center hover:bg-red-200/50">
-                  <p className="text-s text-black font-bold text-center">
+                <div className="absolute inset-0 flex justify-center items-center ">
+                  <p className="text-s bg-lime-100 opacity-2 p-1 text-gray font-bold text-center hover:bg-white">
                     {item.strDrink}
                   </p>
                 </div>
