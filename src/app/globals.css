@@ -47,8 +47,12 @@
   padding: 1rem;
 }
 
+.MuiTextField-root {
+  width: 18.8rem;
+}
+
 .MuiFormControl-root {
-  width: 18.5rem;
+  width: 18.8rem;
   margin-left: 0 !important;
   margin-top: 1rem;
 }
@@ -160,13 +164,21 @@
     background-size: cover;
     margin: auto;
   }
-  .profile-form {
-    width: 90%;
+  .profile-form,
+  .profile-page {
     margin: auto;
     padding: 7rem 6rem 0 6rem;
     position: relative;
     left: 10%;
     top: 15.5%;
+  }
+
+  .profile-form {
+    width: 90%;
+  }
+
+  .profile-page {
+    width: 45%;
   }
   .not-found {
     width: 50%;

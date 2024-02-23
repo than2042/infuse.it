@@ -61,7 +61,6 @@ export default function ProfileForm({
             variant="standard"
             name="username"
             onChange={handleChange}
-            className="username"
           />
           <SelectSpiritsOptions
             name="fav_spirits_id"
