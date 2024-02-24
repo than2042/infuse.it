@@ -51,6 +51,12 @@
   width: 18.8rem;
 }
 
+img {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  object-fit: cover;
+}
+
 .MuiFormControl-root {
   width: 18.8rem;
   margin-left: 0 !important;

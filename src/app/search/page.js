@@ -34,7 +34,7 @@ export default function Search() {
             type="text"
             value={searchQuery}
             onChange={(event) => setSearchQuery(event.target.value)}
-            className="px-5 py-1 w-2/3 sm:px5 sm:py3 flex-1 text-orange bg-white border-black rounded-full "
+            className="px-5 py-1 w-2/3 sm:px5 sm:py3 flex-1 text-black bg-neutral-200 border-black rounded-full "
             placeholder="What are you in the mood for?"
           />
         </form>
