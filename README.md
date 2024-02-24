@@ -50,8 +50,23 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 ![database](./public/images/database.png)
 ![data table](./public/images/table.png)
 
+## Accessblity
+
+![Accessbility](./public/images/accessbility.png)
+
 ## Deploy on Vercel
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Future Build
+
+- Make more improvement on vercel deplpoyment as there was a problem with visiting one page after another
+- add loading and suspence
+- Error handling
+- User able to edit profile
+
+## Deploy Version
+
+https://infuse-it.vercel.app/
