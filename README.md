@@ -60,12 +60,13 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
-## Future Build
+## Future Build & fixed
 
 - Make more improvement on vercel deplpoyment as there was a problem with visiting one page after another
 - add loading and suspence
 - Error handling
 - User able to edit profile
+- User cannnot visit any other page unless creat profile
 
 ## Deploy Version
 
