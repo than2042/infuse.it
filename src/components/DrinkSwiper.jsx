@@ -27,7 +27,7 @@ export default function DrinkSwiper({ dataList, listTitle }) {
           1275: { slidesPerView: 8 },
         }}
       >
-        {dataList.map((item) => (
+        {dataList?.map((item) => (
           <SwiperSlide
             key={item.idDrink}
             className="!flex justify-center items-center "
@@ -39,13 +39,14 @@ export default function DrinkSwiper({ dataList, listTitle }) {
             >
               <Link href={`/search/${item.idDrink}`}>
                 <Image
+                  className="rounded-md"
                   src={item.strDrinkThumb}
                   width={150}
                   height={150}
                   alt={item.strDrink}
                 />
-                <div className="absolute inset-0 flex justify-center items-center ">
-                  <p className="text-s bg-lime-100 opacity-2 p-1 text-gray font-bold text-center hover:bg-white">
+                <div className="absolute inset-0 flex justify-center items-center">
+                  <p className="text-s p-1 text-lime-100 font-bold text-center hover:bg-white">
                     {item.strDrink}
                   </p>
                 </div>

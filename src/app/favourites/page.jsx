@@ -1,11 +1,14 @@
+"use client";
 import NavBar from "@/components/NavBar";
 import { revalidatePath } from "next/cache";
-import DrinkSwiper from "@/components/DrinkSwiper";
 import { auth } from "@clerk/nextjs";
 import { db } from "@/db";
 import Link from "next/link";
 import Image from "next/image";
+import { useApi } from "@/context/ApiContext";
+
 export default async function Favourites() {
+  // const { drinks } = useApi();
   const { userId } = auth();
 
   const userIdRes = await db.query(
@@ -19,6 +22,8 @@ export default async function Favourites() {
     [user_id]
   );
   const favouriteCocktailIds = favRes.rows.map((fav) => fav.cocktail_id);
+
+  console.log(drinks);
 
   // Filter the cocktail API using favourite cocktail IDs
   const response = await fetch(

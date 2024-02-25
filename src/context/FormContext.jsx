@@ -45,7 +45,7 @@ export const FormProvider = ({ children }) => {
 
   const submitAction = AddUserData.bind(null, data, ingValue, favValue);
 
-  const submitActionUpdate = UpdateUserData.bind(
+  const submitActionUpdateCabinet = UpdateUserData.bind(
     null,
     data,
     ingValue,
@@ -58,7 +58,7 @@ export const FormProvider = ({ children }) => {
         data,
         setData,
         submitAction,
-        submitActionUpdate,
+        submitActionUpdateCabinet,
         ingValue,
         setIngValue,
         favValue,

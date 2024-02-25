@@ -3,9 +3,15 @@ import ProfileAccordion from "@/components/ProfileAccordion";
 import { auth } from "@clerk/nextjs";
 import { db } from "@/db";
 import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
 
 export default async function Profile() {
   const { userId } = auth();
+  const userIdRes = await db.query(
+    `SELECT id FROM users WHERE clerk_user_id = $1`,
+    [userId]
+  );
+  const user_id = userIdRes.rows[0].id;
 
   const fav_spiritsRes = await db.query(`SELECT * FROM fav_spirits`);
   const fav_spiritsOptions = fav_spiritsRes.rows;
@@ -17,9 +23,10 @@ export default async function Profile() {
     "use server";
     await db.query(
       `DELETE FROM cabinet_users WHERE user_id = $1 AND cabinet_id = $2`,
-      [userInfo.id, id]
+      [user_id, id]
     );
     revalidatePath("/profile");
+    redirect("/profile");
   }
 
   return (
