@@ -1,5 +1,6 @@
 "use client";
 
+import { revalidatePath } from "next/cache";
 import { createContext, useState, useContext, useEffect } from "react";
 
 const UserContext = createContext();
@@ -9,19 +10,42 @@ export function UserProvider({ children, userId }) {
   const [cabinetIng, setCabinetIng] = useState([]);
 
   useEffect(() => {
-    async function fetchUserData() {
-      const api = "/api/database";
+    if (userId) {
+      async function fetchUserData() {
+        try {
+          const api = "/api/database";
+          const response = await fetch(api);
+          const data = await response.json(); //added removed line of code
+          const userInfo = data.userInfo;
+          const favSpirits = data.favSpirits;
+          const cabinetIng = data.cabinetIng;
+          setUserData(userInfo);
+          setFavSpirits(favSpirits);
+          setCabinetIng(cabinetIng);
+        } catch (error) {
+          console.error("Error fetching user data", error);
+        }
+      }
+      fetchUserData();
+    }
+  }, [userId]);
+
+  const fetchUpdatedUserData = async () => {
+    try {
+      const api = `/api/database`;
       const response = await fetch(api);
-      const data = await response.json(); //added removed line of code
+      const data = await response.json();
       const userInfo = data.userInfo;
       const favSpirits = data.favSpirits;
       const cabinetIng = data.cabinetIng;
       setUserData(userInfo);
       setFavSpirits(favSpirits);
       setCabinetIng(cabinetIng);
+      revalidatePath("/profile");
+    } catch (error) {
+      console.error("Error fetching updated user data", error);
     }
-    fetchUserData();
-  }, [userId]);
+  };
 
   return (
     <UserContext.Provider
@@ -32,6 +56,7 @@ export function UserProvider({ children, userId }) {
         setFavSpirits,
         cabinetIng,
         setCabinetIng,
+        fetchUpdatedUserData,
       }}
     >
       {children}

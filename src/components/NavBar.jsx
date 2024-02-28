@@ -14,22 +14,22 @@ export default function NavBar() {
       sx={{ top: "auto", bottom: 0, background: "#F66640" }}
     >
       <Toolbar sx={{ justifyContent: "space-between" }}>
-        <Link href={"./recommend"} aria-label="recommend">
+        <Link href={"/recommend"} aria-label="recommend">
           <IconButton aria-label="glass icon">
             <LocalBarIcon fontSize="large" sx={{ color: "#F9F4F0" }} />
           </IconButton>
         </Link>
-        <Link href={"./search"} aria-label="search">
+        <Link href={"/search"} aria-label="search">
           <IconButton aria-label="search icon">
             <SearchIcon fontSize="large" sx={{ color: "#F9F4F0" }} />
           </IconButton>
         </Link>
-        <Link href={"./favourites"} aria-label="favourites">
+        <Link href={"/favourites"} aria-label="favourites">
           <IconButton aria-label="heart icon">
             <FavoriteIcon fontSize="large" sx={{ color: "#F9F4F0" }} />
           </IconButton>
         </Link>
-        <Link href={"./profile"} aria-label="user profile">
+        <Link href={"/profile"} aria-label="user profile">
           <IconButton aria-label="user icon">
             <PersonIcon fontSize="large" sx={{ color: "#F9F4F0" }} />
           </IconButton>

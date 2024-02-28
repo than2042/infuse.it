@@ -53,12 +53,10 @@ export default async function SinglePostPage({ params }) {
       <div className="w-screen h-full">
         {details.drinks.map((detail) => (
           <div className=" text-black mb-4  " key={detail.idDrink}>
-            <div className="flex m-auto single-page">
-              <div className=" ml-3 ">
-                <h2 className="text-pink text-2xl font-semibold single-drink ">
-                  {detail.strDrink}
-                </h2>
-              </div>
+            <div className="flex justify-between align-center m-auto single-page px-8">
+              <h2 className="text-pink text-2xl font-semibold single-drink self-center">
+                {detail.strDrink}
+              </h2>
               <FavouriteButton
                 handleAddFav={handleAddFav}
                 handleDeleteFav={handleDeleteFav}
@@ -68,9 +66,9 @@ export default async function SinglePostPage({ params }) {
             <div className="single-container">
               <div className="desktop-display">
                 <Image
-                  className="object-fill rounded-lg mb-5 shadow-md singleImg"
-                  width={390}
-                  height={100}
+                  className="object-cover mx-auto rounded-lg mb-5 shadow-md singleImg"
+                  width={320}
+                  height={280}
                   src={detail.strDrinkThumb}
                   alt={detail.strDrinkThumb}
                 />

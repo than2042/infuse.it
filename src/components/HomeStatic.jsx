@@ -28,7 +28,7 @@ const HomeStatic = () => {
             {arryImage.map((item) => {
               return (
                 <div
-                  key={item.title}
+                  key={item.title + "img"}
                   className="flex justify-evenly gap-1"
                   role="img"
                   aria-labelledby={item.image}

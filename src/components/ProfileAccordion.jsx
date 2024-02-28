@@ -24,7 +24,7 @@ export default function ProfileAccordion({
     setFavValue,
     preferences,
   } = useForm();
-  const { userData, favSpirits, cabinetIng } = useUser();
+  const { userData, favSpirits, cabinetIng, fetchUpdatedUserData } = useUser();
 
   const handleIngChange = (event, newIngValue) => {
     setIngValue(newIngValue);
@@ -34,10 +34,16 @@ export default function ProfileAccordion({
     e.preventDefault();
     try {
       await submitActionUpdateCabinet();
+      await fetchUpdatedUserData();
       setData("");
     } catch (err) {
       console.log("err", err);
     }
+  };
+
+  const handleDeleteIngClick = async (e) => {
+    handleDeleteIng(e);
+    await fetchUpdatedUserData();
   };
 
   return (
@@ -55,7 +61,7 @@ export default function ProfileAccordion({
             <Chip
               key={ing.cabinet_id + "_" + ing.name}
               label={ing.ingredients}
-              onDelete={async () => handleDeleteIng(ing.cabinet_id)}
+              onDelete={async () => handleDeleteIngClick(ing.cabinet_id)}
             />
           ))}
         </AccordionDetails>
@@ -103,10 +109,12 @@ export default function ProfileAccordion({
             ))}
 
           <p>Preferences:</p>
-          {preferences.length > 0 &&
-            preferences.map((pref) => (
-              <Chip key={pref + "dkjb"} label={pref} />
-            ))}
+          {userData.short && <Chip label="short" />}
+          {userData.long && <Chip label="long" />}
+          {userData.easy && <Chip label="easy" />}
+          {userData.complex && <Chip label="complex" />}
+          {userData.egg && <Chip label="egg" />}
+          {userData.dairy && <Chip label="dairy" />}
         </AccordionDetails>
       </Accordion>
       <Accordion>
@@ -116,6 +124,7 @@ export default function ProfileAccordion({
           id="panel2-header"
         >
           Edit Preferences
+          {/* Need to add */}
         </AccordionSummary>
         <AccordionDetails>Edit Preferences</AccordionDetails>
       </Accordion>
@@ -126,6 +135,7 @@ export default function ProfileAccordion({
           id="panel2-header"
         >
           Edit User Info
+          {/* Need to add */}
         </AccordionSummary>
         <AccordionDetails>Edit username</AccordionDetails>
       </Accordion>
